@@ -37,12 +37,7 @@ void Error(string s){
 	exit(-1);
 }
 
-// ArithmeticExpression := Term {AdditiveOperator Term}
-// Term := Digit | "(" ArithmeticExpression ")"
 // AdditiveOperator := "+" | "-"
-// Digit := "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"
-
-	
 void AdditiveOperator(void){
 	if(current=='+'||current=='-')
 		ReadChar();
@@ -50,6 +45,7 @@ void AdditiveOperator(void){
 		Error("Opérateur additif attendu");	   // Additive operator expected
 }
 		
+// Digit := "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"
 void Digit(void){
 	if((current<'0')||(current>'9'))
 		Error("Chiffre attendu");		   // Digit expected
@@ -61,6 +57,7 @@ void Digit(void){
 
 void ArithmeticExpression(void);			// Called by Term() and calls Term()
 
+// Term := Digit | "(" ArithmeticExpression ")"
 void Term(void){
 	if(current=='('){
 		ReadChar();
@@ -77,6 +74,7 @@ void Term(void){
 			Error("'(' ou chiffre attendu");
 }
 
+// ArithmeticExpression := Term {AdditiveOperator Term}
 void ArithmeticExpression(void){
 	char adop;
 	Term();
