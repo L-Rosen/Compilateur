@@ -1,4 +1,4 @@
-# CERIcompiler
+# CERIcompiler this is a fork from Pierre Jourlin repos
 
 A simple compiler.
 From : Pascal-like imperative LL(k) langage
